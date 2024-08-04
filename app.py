@@ -14,7 +14,7 @@ model = genai.GenerativeModel(model_name="models/gemini-1.5-pro")
 class VideoCaptureApp(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Video Capture with PySide6")
+        self.setWindowTitle("MathScribe")
         self.setGeometry(100, 100, 800, 600)
 
         # Create a widget for the main window
@@ -57,7 +57,6 @@ class VideoCaptureApp(QMainWindow):
         self.thickness = None
 
     def start_video(self):
-        self.cap = cv2.VideoCapture(0)
         self.timer.start(30)
 
     def stop_video(self):
@@ -79,7 +78,7 @@ class VideoCaptureApp(QMainWindow):
         elif event.key() == Qt.Key_Escape:
             self.drawing_frame = np.zeros_like(self.drawing_frame)
 
-        elif event.key() == Qt.Key_Enter:
+        elif event.key() == Qt.Key_A:
             self.capture_snapshot()
 
 
